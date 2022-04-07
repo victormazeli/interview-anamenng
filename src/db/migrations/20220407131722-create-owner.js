@@ -4,9 +4,8 @@ module.exports = {
     await queryInterface.createTable("Owners", {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.UUIDV4,
+        type: Sequelize.UUID,
       },
       ownerType: {
         type: Sequelize.STRING,
