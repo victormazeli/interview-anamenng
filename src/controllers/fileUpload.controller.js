@@ -23,6 +23,7 @@ export default class {
         let data1Cleaned = [];
         let data2Cleaned = [];
         let data3Cleaned = [];
+        let OwnerTable = []
 
         for (let index = 0; index < data1.length; index++) {
             const element = _.omit(data1[index], 'ObjectID');
