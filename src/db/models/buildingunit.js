@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     x: DataTypes.FLOAT,
     y: DataTypes.FLOAT,
     occupantId: {
-      type:DataTypes.UUID,
+      type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4
     }
 
