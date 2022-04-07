@@ -8,15 +8,13 @@ router.get(
     '/',
     OccupantController.index
 );
-
-router.get(
-    '/:id',
-    OccupantController.get
-);
-
 router.get(
     '/total',
     OccupantController.getTotalOccupant
+);
+router.get(
+    '/:id',
+    OccupantController.get
 );
 
 router.get(
