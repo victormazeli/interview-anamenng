@@ -1,69 +1,69 @@
-'use strict';
+"use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Owners', {
+    await queryInterface.createTable("Owners", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUIDV4,
       },
       ownerType: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       firstName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       surname: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       otherNames: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       fullName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       occupation: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       address1: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       address2: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       city: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       alternativePhoneNo: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       phoneNumber: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       lga1: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       state1: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       businessName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Owners');
-  }
+    await queryInterface.dropTable("Owners");
+  },
 };
