@@ -4,7 +4,6 @@ module.exports = {
     await queryInterface.createTable("Parcels", {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
         type: Sequelize.UUIDV4,
       },
@@ -69,7 +68,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       gridNo: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
       },
       ownerId: {
         allowNull: false,

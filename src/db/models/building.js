@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.Parcel, {as: "parcel", foreignKey: "parcelId"})
+      this.hasMany(models.BuildingUnit, {as: "buildingUnits", foreignKey: "buildingId"})
     }
   }
   Building.init({
@@ -31,8 +33,8 @@ module.exports = (sequelize, DataTypes) => {
     grouping: DataTypes.STRING,
     noOfFloor: DataTypes.INTEGER,
     isFenced: DataTypes.STRING,
-    longitude: DataTypes.FLOAT,
-    latitude: DataTypes.FLOAT,
+    longitude: DataTypes.STRING,
+    latitude: DataTypes.STRING,
     parcelId: {
       type:DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4

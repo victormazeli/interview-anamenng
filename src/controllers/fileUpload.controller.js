@@ -3,7 +3,7 @@ import response from "../utils/responses"
 import * as XLSX from 'xlsx'
 import _ from 'lodash';
 import { uuid } from "uuidv4";
-
+import { Parcel, Building, Occupant, Owner, BuildingUnit } from "../db/models"
 
 export default class {
     static async uploadFile(req, res) {
@@ -54,6 +54,7 @@ export default class {
         data1Cleaned.forEach((el) => {
             let ownerId = uuid();
             let ownerObject = {
+                id: ownerId,
                 ownerType: el['Type of Owner?'] ? el['Type of Owner?'] : null,
                 firstName: el['First Name'] ? el['First Name'] : null,
                 surname: el['Surname'] ? el['Surname'] : null,
@@ -191,15 +192,39 @@ export default class {
          * 2. insert data
          */
 
+        // clear db
+        await Parcel.destroy({
+            truncate: true
+        });
 
+        await Building.destroy({
+            truncate: true
+        });
 
+        await BuildingUnit.destroy({
+            truncate: true
+        });
 
+        await Owner.destroy({
+            truncate: true
+        });
 
+        await Occupant.destroy({
+            truncate: true
+        });
 
+        // insert all data 
+        await Parcel.bulkCreate(parcels);
 
+        await Owner.bulkCreate(ownerEntities);
 
+        await Building.bulkCreate(buildings);
 
-        res.status(200).json(response.success(200, 'upload successful', data1Cleaned ))
+        await BuildingUnit.bulkCreate(buildingUnits);
+
+        await Occupant.bulkCreate(occupants);
+
+        res.status(200).json(response.success(200, 'upload successful'))
        } catch (error) {
            console.log(error)
            res.status(500).json(response.error(500, "error"))

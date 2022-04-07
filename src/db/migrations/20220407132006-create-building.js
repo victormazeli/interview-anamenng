@@ -4,9 +4,8 @@ module.exports = {
     await queryInterface.createTable("Buildings", {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.UUIDV4,
+        type: Sequelize.UUID,
       },
       buildingUse: {
         type: Sequelize.STRING,
@@ -60,14 +59,14 @@ module.exports = {
         type: Sequelize.STRING,
       },
       longitude: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.STRING,
       },
       latitude: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.STRING,
       },
       parcelId: {
         allowNull: false,
-        type: Sequelize.UUIDV4,
+        type: Sequelize.UUID,
       },
       createdAt: {
         allowNull: false,

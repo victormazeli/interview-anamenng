@@ -4,9 +4,8 @@ module.exports = {
     await queryInterface.createTable("Owners", {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.UUIDV4,
+        type: Sequelize.UUID,
       },
       ownerType: {
         type: Sequelize.STRING,
@@ -39,10 +38,13 @@ module.exports = {
         type: Sequelize.STRING,
       },
       alternativePhoneNo: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       phoneNumber: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
+      },
+      ward1: {
+        type: Sequelize.STRING,
       },
       lga1: {
         type: Sequelize.STRING,

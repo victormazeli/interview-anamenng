@@ -4,9 +4,8 @@ module.exports = {
     await queryInterface.createTable("BuildingUnits", {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.UUIDV4,
+        type: Sequelize.UUID,
       },
       floorNumber: {
         type: Sequelize.INTEGER,
@@ -27,17 +26,17 @@ module.exports = {
         type: Sequelize.STRING,
       },
       buildingOccupants: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       howManyOccupants: {
         type: Sequelize.INTEGER,
       },
       buildingId: {
         allowNull: false,
-        type: Sequelize.UUIDV4,
+        type: Sequelize.UUID,
       },
       creationDate: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       editDate: {
         type: Sequelize.STRING,
@@ -46,14 +45,14 @@ module.exports = {
         type: Sequelize.STRING,
       },
       x: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.STRING,
       },
       y: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.STRING,
       },
       occupantId: {
         allowNull: false,
-        type: Sequelize.UUIDV4,
+        type: Sequelize.UUID,
       },
       createdAt: {
         allowNull: false,
