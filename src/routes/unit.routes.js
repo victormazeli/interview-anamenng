@@ -1,27 +1,27 @@
 import { Router } from 'express';
-import BuildingController from '../controllers/building.controller';
+import BuildingUnitController from '../controllers/buildingUnit.controller';
 
 const router = Router();
-const module = "building";
+const module = "unit";
 
 router.get(
     '/',
-    BuildingController.index
+    BuildingUnitController.index
 );
 
 router.get(
     '/:id',
-    BuildingController.get
+    BuildingUnitController.get
 );
 
 router.get(
     '/total',
-    BuildingController.getTotalBuilding
+    BuildingUnitController.getTotalBuildingUnit
 );
 
 router.get(
-    '/parcel/:id',
-    BuildingController.getAllBuildingByParcel
+    '/building/:id',
+    BuildingUnitController.getAllBuildingUnitByBuilding
 );
 
 

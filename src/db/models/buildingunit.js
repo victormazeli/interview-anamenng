@@ -11,8 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasOne(models.Occupant, {as: 'occupant', foreignKey:'occupantId'})
-      this.belongsTo(models.Building, {as: 'building', foreignKey: 'buildingId'})
+      this.belongsTo(models.Occupant, {as: 'occupant', foreignKey:'occupantId'})
     }
   }
   BuildingUnit.init({
