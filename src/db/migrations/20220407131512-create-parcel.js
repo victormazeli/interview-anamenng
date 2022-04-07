@@ -68,7 +68,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       gridNo: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
       },
       ownerId: {
         allowNull: false,

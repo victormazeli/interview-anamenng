@@ -7,6 +7,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.UUID,
       },
+      occupantType: {
+        type: Sequelize.STRING,
+      },
       businessName: {
         type: Sequelize.STRING,
       },

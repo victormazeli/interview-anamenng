@@ -59,10 +59,10 @@ module.exports = {
         type: Sequelize.STRING,
       },
       longitude: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.STRING,
       },
       latitude: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.STRING,
       },
       parcelId: {
         allowNull: false,

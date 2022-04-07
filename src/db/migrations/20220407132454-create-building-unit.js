@@ -26,7 +26,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       buildingOccupants: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       howManyOccupants: {
         type: Sequelize.INTEGER,
@@ -36,7 +36,7 @@ module.exports = {
         type: Sequelize.UUID,
       },
       creationDate: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       editDate: {
         type: Sequelize.STRING,
@@ -45,10 +45,10 @@ module.exports = {
         type: Sequelize.STRING,
       },
       x: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.STRING,
       },
       y: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.STRING,
       },
       occupantId: {
         allowNull: false,

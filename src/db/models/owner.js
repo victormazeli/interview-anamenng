@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.hasMany(models.Parcel, {as: 'parcels', foreignKey: "ownerId"})
     }
   }
   Owner.init({
@@ -24,8 +25,8 @@ module.exports = (sequelize, DataTypes) => {
     address2: DataTypes.STRING,
     city: DataTypes.STRING,
     email: DataTypes.STRING,
-    alternativePhoneNo: DataTypes.INTEGER,
-    phoneNumber: DataTypes.INTEGER,
+    alternativePhoneNo: DataTypes.STRING,
+    phoneNumber: DataTypes.STRING,
     ward1: DataTypes.STRING,
     lga1: DataTypes.STRING,
     state1: DataTypes.STRING,

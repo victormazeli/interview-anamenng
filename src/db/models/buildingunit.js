@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.hasOne(models.Occupant, {as: 'occupant', foreignKey:'occupantId'})
+      this.belongsTo(models.Building, {as: 'building', foreignKey: 'buildingId'})
     }
   }
   BuildingUnit.init({
@@ -20,17 +22,17 @@ module.exports = (sequelize, DataTypes) => {
     NoOfRooms: DataTypes.INTEGER,
     propertyUse1: DataTypes.INTEGER,
     buildingPurpose: DataTypes.STRING,
-    buildingOccupants: DataTypes.INTEGER,
+    buildingOccupants: DataTypes.STRING,
     howManyOccupants: DataTypes.INTEGER,
     buildingId: {
       type:DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4
     },
-    creationDate: DataTypes.DATE,
-    editDate: DataTypes.DATE,
+    creationDate: DataTypes.STRING,
+    editDate: DataTypes.STRING,
     editor: DataTypes.STRING,
-    x: DataTypes.FLOAT,
-    y: DataTypes.FLOAT,
+    x: DataTypes.STRING,
+    y: DataTypes.STRING,
     occupantId: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4

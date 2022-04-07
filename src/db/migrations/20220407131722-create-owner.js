@@ -38,10 +38,13 @@ module.exports = {
         type: Sequelize.STRING,
       },
       alternativePhoneNo: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       phoneNumber: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
+      },
+      ward1: {
+        type: Sequelize.STRING,
       },
       lga1: {
         type: Sequelize.STRING,
