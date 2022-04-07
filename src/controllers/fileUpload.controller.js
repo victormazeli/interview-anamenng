@@ -24,10 +24,11 @@ export default class {
         let data1Cleaned = [];
         let data2Cleaned = [];
         let data3Cleaned = [];
-        let ownerEntity = [];
-        let parcel = [];
-        let buildingUnit = [];
-        let occupant = [];
+        let ownerEntities = [];
+        let parcels = [];
+        let buildingUnits = [];
+        let occupants = [];
+        let buildings = [];
 
         for (let index = 0; index < data1.length; index++) {
             const element = _.omit(data1[index], 'ObjectID');
@@ -69,7 +70,6 @@ export default class {
                 lga1: el['LGA_1'] ? el['LGA_1'] : null,
                 state1: el['State_1'] ? el['State_1'] : null,
                 businessName: el['Business Name'] ? el['Business Name'] : null,
-                id: ownerId
 
             }
             let landObject = {
@@ -99,13 +99,14 @@ export default class {
                 ownerId
 
             }
-            ownerEntity.push(ownerObject);
-            parcel.push(landObject);
+            ownerEntities.push(ownerObject);
+            parcels.push(landObject);
 
         });
 
         // extract occupant data from building
         data2Cleaned.forEach((el) => {
+            let occupantId = uuid();
             let unit = {
                 id: el['GlobalID'] ? el['GlobalID'] : null,
                 floorNumber: el['Floor Number'] ? el['Floor Number'] : null,
@@ -113,13 +114,87 @@ export default class {
                 unitType: el['Unit Type'] ? el['Unit Type'] : null,
                 NoOfRooms: el['No Of Rooms'] ? el['No Of Rooms'] : null,
                 propertyUse1: el['Property Use1'] ? el['Property Use1'] : null,
-                unitNo: el['Building Purpose'] ? el['Building Purpose'] : null,
-                unitNo: el['Unit No'] ? el['Unit No'] : null,
+                buildingPurpose: el['Building Purpose'] ? el['Building Purpose'] : null,
+                buildingOccupants: el['Does the Building have Occupants?'] ? el['Does the Building have Occupants?'] : null,
+                howManyOccupants: el['How many Occupants does the Building have?'] ? el['How many Occupants does the Building have?'] : null,
+                buildingId: el['ParentGlobalID'] ? el['ParentGlobalID'] : null,
+                creationDate: el['CreationDate'] ? el['CreationDate'] : null,
+                editDate: el['EditDate'] ? el['EditDate'] : null,
+                editor: el['Editor'] ? el['Editor'] : null,
+                x: el['Editor'] ? el['Editor'] : null,
+                y: el['Editor'] ? el['Editor'] : null,
+                occupantId
 
+            };
+
+            let occupant = {
+                id: occupantId,
+                occupantType: el['Occupant'] ? el['Occupant'] : null,
+                businessName: el['Business Name'] ? el['Business Name'] : null,
+                director: el['Name of Directors/Trustees'] ? el['Name of Directors/Trustees'] : null,
+                cacRegNo: el['CAC Registration Number'] ? el['CAC Registration Number'] : null,
+                cacRegDate: el['CAC Registration Date'] ? el['CAC Registration Date'] : null,
+                IMSSBN: el['Do you have Imo Number (IMSSBN)?'] ? el['Do you have Imo Number (IMSSBN)?'] : null,
+                JTBTIN: el['JTB-TIN'] ? el['JTB-TIN'] : null,
+                businessTIN: el['Business TIN'] ? el['Business TIN'] : null,
+                typeOfBusiness: el['Type Of Business'] ? el['Type Of Business'] : null,
+                regType: el['Registration Type'] ? el['Registration Type'] : null,
+                buisnessSize: el['Size Of Business'] ? el['Size Of Business'] : null,
+                noOfSectorStaff: el['Number of Core Sector Staff'] ? el['Number of Core Sector Staff'] : null,
+                noOfNonCoreStaff: el['Number of Non-Core Sector Staff'] ? el['Number of Non-Core Sector Staff'] : null,
+                taxOffice: el['Tax Office'] ? el['Tax Office'] : null,
+                businessMobility: el['Business Mobility'] ? el['Business Mobility'] : null,
+                CACStatus: el['Registration Status (CAC)'] ? el['Registration Status (CAC)'] : null,
+                regStatus: el['Registration Status (Imo State)'] ? el['Registration Status (Imo State)'] : null,
+                buisnessCategory: el['Business Category'] ? el['Business Category'] : null,
+                buisnessSector: el['Business Sector'] ? el['Business Sector'] : null,
+                buinessSubSector: el['Business Subsector'] ? el['Business Subsector'] : null,
 
             }
 
-        })
+            occupants.push(occupant);
+            buildingUnits.push(unit)
+
+        });
+
+        data3Cleaned.forEach((el) => {
+            let building = {
+                id: el['GlobalID'] ? el['GlobalID'] : null,
+                buildingUse: el['Building Use'] ? el['Building Use'] : null,
+                isBuildingForBuisness: el['If the Building Has Business'] ? el['If the Building Has Business'] : null,
+                buildingTagNo: el['Building Tag Number (Scan Barcode)'] ? el['Building Tag Number (Scan Barcode)'] : null,
+                buildingSerialNo: el['Building SerialNo'] ? el['Building SerialNo'] : null,
+                estateName: el['Estate Name'] ? el['Estate Name'] : null,
+                buildingStatus: el['Building Status'] ? el['Building Status'] : null,
+                knowyearOfCompletion: el['Do You Know the Year of Completion?'] ? el['Do You Know the Year of Completion?'] : null,
+                yearOfCompletion: el['Year Built/Completed'] ? el['Year Built/Completed'] : null,
+                approximateAge: el['Approximate age (if no year specified)'] ? el['Approximate age (if no year specified)'] : null,
+                condition: el['Building Condition'] ? el['Building Condition'] : null,
+                buildingType: el['Building Type'] ? el['Building Type'] : null,
+                arrangement: el['Arrangement'] ? el['Arrangement'] : null,
+                roofCovering: el['Type of Roof Coverings'] ? el['Type of Roof Coverings'] : null,
+                mainWallMaterial: el['What is the main wall material of the building?'] ? el['What is the main wall material of the building?'] : null,
+                grouping: el['Grouping'] ? el['Grouping'] : null,
+                noOfFloor: el['No of Floors'] ? el['No of Floors'] : null,
+                isFenced: el['Is the Building Fenced'] ? el['Is the Building Fenced'] : null,
+                longitude: el['longitude'] ? el['longitude'] : null,
+                latitude: el['latitude'] ? el['latitude'] : null,
+                parcelId: el['ParentGlobalID'] ? el['ParentGlobalID'] : null,
+
+            }
+            buildings.push(building);
+        });
+
+        /**
+         * 1. First clear all data in the databse to avoid redundancy
+         * 
+         * 2. insert data
+         */
+
+
+
+
+
 
 
 
