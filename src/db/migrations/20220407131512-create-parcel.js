@@ -6,7 +6,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.UUID,
+        type: Sequelize.UUIDV4,
       },
       freeAccess: {
         type: Sequelize.STRING,
