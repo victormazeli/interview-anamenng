@@ -23,6 +23,36 @@ module.exports = {
       fullName: {
         type: Sequelize.STRING
       },
+      occupation: {
+        type: Sequelize.STRING
+      },
+      address1: {
+        type: Sequelize.STRING
+      },
+      address2: {
+        type: Sequelize.STRING
+      },
+      city: {
+        type: Sequelize.STRING
+      },
+      email: {
+        type: Sequelize.STRING
+      },
+      alternativePhoneNo: {
+        type: Sequelize.INTEGER
+      },
+      phoneNumber: {
+        type: Sequelize.INTEGER
+      },
+      lga1: {
+        type: Sequelize.STRING
+      },
+      state1: {
+        type: Sequelize.STRING
+      },
+      businessName: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
